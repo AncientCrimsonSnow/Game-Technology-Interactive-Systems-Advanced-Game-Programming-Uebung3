@@ -21,6 +21,9 @@ public class ParaMeshGen : MonoBehaviour
         Torus,
         Sphere,
         KomischerTrichter,
+        OakPost,
+        Cylinder,
+        Cone,
         Default
     }
     
@@ -35,7 +38,7 @@ public class ParaMeshGen : MonoBehaviour
     private void FixedUpdate()
     {
         
-        divisionsX = 30 + (int) (Time.time * 30) % 256;
+        //divisionsX = 30 + (int) (Time.time * 30) % 256;
         Generate();
     }
 
@@ -58,6 +61,12 @@ public class ParaMeshGen : MonoBehaviour
                 return new Vector4(0, Mathf.PI, 0, 2*Mathf.PI);
             case Shapes.KomischerTrichter:
                 return new Vector4(0, 6.28f, 0, 9);
+            case Shapes.OakPost:
+                return new Vector4(0, 60, 0, 2 * Mathf.PI);
+            case Shapes.Cylinder:
+                return new Vector4(0, 2 * Mathf.PI, -1, 1);
+            case Shapes.Cone:
+                return new Vector4(0, 2 * Mathf.PI, 0, 2);
             default:
                 return new Vector4(-1, 1, -1, 1);
         }
@@ -88,6 +97,26 @@ public class ParaMeshGen : MonoBehaviour
                     v * cos(u),
                     v * sin(u),
                     v + sin(3*v)/3 - 4);
+            case Shapes.OakPost:
+                return new Vector3(
+                        5 + cos((Mathf.PI * u / 6)) * cos(v),
+                        5 + cos((Mathf.PI * u / 6)) * sin(v),
+                        u
+                    );
+            case Shapes.Cylinder:
+                return new Vector3(
+                       cos(u),
+                       sin(u),
+                       v
+                );
+            case Shapes.Cone:
+                float R1 = 1;
+                float h = 2;
+                return new Vector3(
+                        (R1 - (R1 / h) * v) * cos(u),
+                        (R1 - (R1 / h) * v) * sin(u),
+                        v
+                    );
             default:
                 return Vector3.one;
         } 
@@ -101,12 +130,10 @@ public class ParaMeshGen : MonoBehaviour
     {
         return Mathf.Sin(value);
     }
-
     float tan(float value)
     {
         return Mathf.Tan(value);
     }
-
     float log(float value)
     {
         return Mathf.Log(value);
@@ -175,6 +202,6 @@ public class ParaMeshGen : MonoBehaviour
          mesh.RecalculateNormals();
          mesh.RecalculateTangents();
 
-         meshFilter.mesh= mesh;
+         meshFilter.mesh = mesh;
      }
 }
