@@ -121,7 +121,6 @@ public class ParaMeshGen : MonoBehaviour
                 return Vector3.one;
         } 
     }
-
     float cos(float value)
     {
         return Mathf.Cos(value);
@@ -153,8 +152,8 @@ public class ParaMeshGen : MonoBehaviour
 
          for (var y = 0; y < vertexSize.y; y++)                            
          {
-             var vNormalized = (1f / divisions.y) * y;                                
-             var v = Mathf.Lerp(uvBounds.z, uvBounds.w, vNormalized);                     // boundary check
+             var vNormalized = (1f / divisions.y) * y;
+             var v = Mathf.Lerp(uvBounds.z, uvBounds.w, vNormalized); // boundary check
 
              for (var x = 0; x < vertexSize.x; x++)
              {
