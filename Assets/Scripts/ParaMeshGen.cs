@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ParaMeshGen : MonoBehaviour
 {
-    [Range(2, 512)] [SerializeField] private int divisionsX = 12;
-    [Range(2, 512)] [SerializeField] private int divisionsY = 12;
+    [Range(2, 64)] [SerializeField] private int divisionsX = 12;
+    [Range(2, 64)] [SerializeField] private int divisionsY = 12;
     [Range(0.1f, 10)] [SerializeField] private float scale = 1;
 
     [SerializeField] private MeshFilter meshFilter;
@@ -26,19 +26,8 @@ public class ParaMeshGen : MonoBehaviour
         Cone,
         Default
     }
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        divisionsX = 12;
-        divisionsY = 12;
-    }
-    
     private void FixedUpdate()
     {
-        
-        //divisionsX = 30 + (int) (Time.time * 30) % 256;
         Generate();
     }
 
