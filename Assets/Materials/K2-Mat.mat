@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8514678499430321003
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 11
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -7,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: K1-Mat
-  m_Shader: {fileID: -6465566751694194690, guid: 7d8af6e859ac7e548a2f7bf8ce0d4408, type: 3}
+  m_Name: K2-Mat
+  m_Shader: {fileID: -6465566751694194690, guid: 7da4e6d7ddad28d4a8a2c9540b3f4b47, type: 3}
   m_ShaderKeywords: _DISABLE_SSR_TRANSPARENT _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -81,12 +94,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_44935e5cd1484381a39e2aeee60130e6_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 79009d2d8f52590449a72066c327d353, type: 3}
+    - _SampleTexture2D_74a5b39e55b248cd9e316b9ee6d50030_Texture_1:
+        m_Texture: {fileID: 2800000, guid: f6e15ec362c60e74cb03d3353528f79c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_8878b33a6f044b1da2b580eb6acf4c3d_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 6d9beadd74e02964c8cb5b19a3f3ea41, type: 3}
+    - _SampleTexture2D_a57abddecde743e9896769e8865eeea0_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 060f44f7b9fa42e4aa07ac67c8c94b34, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
@@ -126,7 +139,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_24f1949d0aa341569ee6e89a74ef465b: 1111
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -239,7 +251,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_17967f5da58740d49c845f8c9808c7c3: {r: 0, g: 0.60473037, b: 1, a: 0}
+    - Color_16dc3b233a7e40e993c4aa49d14ea7dc: {r: 0.07694016, g: 0.0808394, b: 0.8584906, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -257,16 +269,3 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &1101442697454082066
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 11
