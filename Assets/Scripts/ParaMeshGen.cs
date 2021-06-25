@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ParaMeshGen : MonoBehaviour
 {
-    [Range(2, 512)] [SerializeField] private int divisionsX = 12;
-    [Range(2, 512)] [SerializeField] private int divisionsY = 12;
+    [Range(2, 64)] [SerializeField] private int divisionsX = 12;
+    [Range(2, 64)] [SerializeField] private int divisionsY = 12;
     [Range(0.1f, 10)] [SerializeField] private float scale = 1;
 
     [SerializeField] private MeshFilter meshFilter;
@@ -26,19 +26,8 @@ public class ParaMeshGen : MonoBehaviour
         Cone,
         Default
     }
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        divisionsX = 12;
-        divisionsY = 12;
-    }
-    
     private void FixedUpdate()
     {
-        
-        //divisionsX = 30 + (int) (Time.time * 30) % 256;
         Generate();
     }
 
@@ -121,7 +110,6 @@ public class ParaMeshGen : MonoBehaviour
                 return Vector3.one;
         } 
     }
-
     float cos(float value)
     {
         return Mathf.Cos(value);
@@ -153,8 +141,8 @@ public class ParaMeshGen : MonoBehaviour
 
          for (var y = 0; y < vertexSize.y; y++)                            
          {
-             var vNormalized = (1f / divisions.y) * y;                                
-             var v = Mathf.Lerp(uvBounds.z, uvBounds.w, vNormalized);                     // boundary check
+             var vNormalized = (1f / divisions.y) * y;
+             var v = Mathf.Lerp(uvBounds.z, uvBounds.w, vNormalized); // boundary check
 
              for (var x = 0; x < vertexSize.x; x++)
              {
