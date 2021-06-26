@@ -50,7 +50,7 @@ MonoBehaviour:
   divisionsY: 34
   scale: 10
   meshFilter: {fileID: 4626494219753740365}
-  shape: 7
+  shape: 0
 --- !u!33 &4626494219753740365
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -78,7 +78,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6baec5a7b6aa64d499722f88c6d500d4, type: 2}
+  - {fileID: 2100000, guid: 943630f0ebfe98249af69ca514928f8a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

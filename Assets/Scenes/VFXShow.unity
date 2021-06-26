@@ -791,5 +791,9 @@ PrefabInstance:
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[0].m_Value.m_NumColorKeys
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6966968840251159498, guid: 81bf6b5460a2cca42987f82be02ac022, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81bf6b5460a2cca42987f82be02ac022, type: 3}
