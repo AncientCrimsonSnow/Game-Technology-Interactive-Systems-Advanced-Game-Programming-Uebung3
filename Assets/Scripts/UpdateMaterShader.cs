@@ -10,8 +10,10 @@ public class UpdateMaterShader : MonoBehaviour
     private Material mat;
     [SerializeField] private Vector3 lightSource;
 
-
-    // Update is called once per frame
+    /*
+     * Hilfsscript um die Properties vom Handgeschriebenen Shader zu manipulieren. 
+     */
+    
     private void OnEnable()
     {
         mat = meshRenderer.material;

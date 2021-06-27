@@ -5,6 +5,15 @@ using UnityEngine;
 
 public class Attractor : MonoBehaviour {
 
+	/*
+	 * https://github.com/Brackeys/Gravity-Simulation-Tutorial
+	 *
+	 * Von hier geklaut. Leicht verändert, da:
+	 *
+	 * Objekte sich nicht gegenseitig beeinflussen sollen sondern nur das BlackHole eine Anziehung auf alle haben soll.
+	 */
+
+	
 	const float G = 667.4f;
 
 	public static List<Attractor> Attractors;
@@ -13,6 +22,14 @@ public class Attractor : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
+		/*
+		 * auf (0,0,0) befindet sich das Black Hole, nur dieses soll andere Objekte anziehen.
+		 * JA, unsauberer und fehleranfälliger hätte man es wahrscheinlich nicht machen können ABER die Zeit wurde knapp und
+		 * wenden würde das überarbeitet werden, wenn man weiter dran arbeiten würde. Das gilt auch für die das if Statement
+		 * int Zeile 48.
+		 */
+
+		
 		if (transform.position.Equals(Vector3.zero))
 		{
 			foreach (Attractor attractor in Attractors)

@@ -11,6 +11,8 @@ public class ParaMeshGen : MonoBehaviour
 
     [SerializeField] private MeshFilter meshFilter;
     [SerializeField] private Shapes shape = Shapes.Default;
+
+    private MeshCollider MeshCollider;
     
     
     private Mesh mesh;
@@ -26,9 +28,19 @@ public class ParaMeshGen : MonoBehaviour
         Cone,
         Default
     }
+
+    private void Start()
+    {
+        MeshCollider = GetComponent<MeshCollider>();
+    }
+
     private void FixedUpdate()
     {
         Generate();
+        if (MeshCollider != null)
+        {
+            MeshCollider.sharedMesh = mesh;
+        }
     }
 
     /*
@@ -127,7 +139,6 @@ public class ParaMeshGen : MonoBehaviour
         return Mathf.Log(value);
     }
 
-    // Update is called once per frame
     void Generate()
      {
          mesh = new Mesh();
@@ -178,11 +189,6 @@ public class ParaMeshGen : MonoBehaviour
              triangles[indexer + 5] = triangleIndex + divisions.x + 2;
 
          }
-         
-         
-         
-         
-         
          mesh.SetVertices(vertices);  
          mesh.SetUVs(0, uvs);
          mesh.SetTriangles(triangles, 0);

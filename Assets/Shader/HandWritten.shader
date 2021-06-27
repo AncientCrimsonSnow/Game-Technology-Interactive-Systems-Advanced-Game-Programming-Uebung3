@@ -47,10 +47,12 @@ Shader "Unlit/HandWritten"
 
             float4 frag (v2f i) : SV_Target
             {
+                //Soll immer richtung Lightsource ein Licht simulieren aber auch immer eine Grundhelligkeit anwenden
                 float3 lightDir = normalize(_Lightsource.xyz - _WorldPos.xyz);
                 float3 lightColor = _LightColor.rgb;
                 float lightFalloff = saturate(dot(lightDir, i.normal));
                 float3 diffuseLight = lightColor * lightFalloff;
+                //Grundhelligkeit
                 float3 ambientLight = 0.1 * _LightColor;
                 
                 float4 result = float4((saturate(diffuseLight+ambientLight)+_Color.rgb)/2, 1);

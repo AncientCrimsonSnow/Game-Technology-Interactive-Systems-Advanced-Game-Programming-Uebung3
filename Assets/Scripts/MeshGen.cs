@@ -15,14 +15,26 @@ public class MeshGen : MonoBehaviour
     [Range(2, 64)] [SerializeField] private int divisionsX;
     [Range(2, 64)] [SerializeField] private int divisionsY;
     
-
+    /*
+     * 1. Versuch ein Mesh zu Generieren, nicht wie gewünscht über Parameter aber dennoch sehr Interessant.
+     * 
+     */
+    
+    
     private void FixedUpdate()
     {
+        //Wenn wir über die Checkbox "RadiusMinLook" den Radius einschränken wollen.
+        //Dann wird dieser immer min. so groß sein, dass es noch immer ein "Torus" ist
         if (RadiusMinLook)
         {
             radius = Mathf.Max(Mathf.Abs(thickness / 2), radius);
         }
         
+        /*
+         * Smooth oder nicht.
+         * Underschied im Code. Im smooth Mode, haben wir pro Edge nur ein Vertice.
+         * Wenn wir nicht Smoothen haben wir für jede Edge x viele Vertice. X = Anzahl Kanten am Endge
+         */
         if(Smooth)
             GenTorusSmooth();
         else
@@ -44,17 +56,19 @@ public class MeshGen : MonoBehaviour
         List<Vector3> vertices = new List<Vector3>();
 
         float TAU = Mathf.PI * 2;
+        //Der Ring
         for (int i = 0; i < divisionsX; i++)
         {
             float t = i / (float) divisionsX;
             float angRad = t * TAU;
 
+            
             Vector3 point = new Vector3(
                 Mathf.Cos(angRad) * radius,
                 0,
                 Mathf.Sin(angRad) * radius
             );
-
+            //Um den Ring jeweils einen Kreis pro j.
             for (int j = 0; j < divisionsY; j++)
             {
                 t = j / (float) divisionsY;
@@ -73,6 +87,9 @@ public class MeshGen : MonoBehaviour
             }
         }
         /*
+         
+         Debug Stuff.
+         
         for (int i = 0; i < vertices.Count; i++)
         {
             var sphere = Instantiate(SpherePrefab, transform);
@@ -88,6 +105,9 @@ public class MeshGen : MonoBehaviour
         {
             for (int y = 0; y < divisionsY; y++)
             {
+                
+                //Die Hölle auf Erden. Wenn die letzte der 4 Formeln nicht 200 Bonuspunkte bringt, weine ich ganz viel
+                //4 VerticeIndicies eines Rechtsecks worauf 2 Dreiecke Entstehen. 
                 int rootIndex = (y + divisionsY * x);
                 int rootIndexUp = (rootIndex + 1) % divisionsY + x * divisionsY;
                 int rootIndexNext = (rootIndex + divisionsY) % vertices.Count;
@@ -111,7 +131,9 @@ public class MeshGen : MonoBehaviour
         
     }
     public void GenTorus() {
-
+        
+        //Ganz viele Locale Funktionen, welche ich mehrmals benutzen werde.
+        
         Vector3 RotateFlat(float angRad)
         {
             return new Vector3(
@@ -125,6 +147,10 @@ public class MeshGen : MonoBehaviour
         {
             return t * TAU;
         }
+        /*
+         * Wenn ich mich richtig erinnere, Rotiere ich hier einen Vektor in die Richtung vom "rotateDir" Vektor
+         * und gebe diesem auch eine länge
+         */
         Vector3 RotateAlongVector(Vector3 rotateDir, float length, float angRad)
         {
             Vector3 result = rotateDir.normalized;
@@ -198,8 +224,6 @@ public class MeshGen : MonoBehaviour
             sphere.name = "V: " + i;
         }
         */
-        
-        
         myMesh.SetVertices(vertices);
         myMesh.SetTriangles(triangleIndices, 0);
         myMesh.RecalculateNormals();
